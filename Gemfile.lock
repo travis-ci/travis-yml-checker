@@ -97,6 +97,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    safe_yaml (1.0.4)
     sentry-raven (2.5.3)
       faraday (>= 0.7.6, < 1.0)
     sidekiq (5.0.3)
@@ -129,6 +130,7 @@ DEPENDENCIES
   pg
   puma
   rspec
+  safe_yaml
   sentry-raven
   sidekiq
   sinatra

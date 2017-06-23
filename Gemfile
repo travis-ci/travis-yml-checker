@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'activerecord', '~> 5.0'
 gem 'pg'
+gem 'safe_yaml'
 
 gem 'sinatra'
 gem 'sidekiq'
