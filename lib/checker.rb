@@ -7,7 +7,7 @@ module Checker
     register Travis::SSO
 
     get '/' do
-      'Hello, world!'
+      'Hello! From the outside!'
     end
   end
 end

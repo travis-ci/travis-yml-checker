@@ -1,7 +1,7 @@
 require 'active_record'
 require 'yaml'
 
-module Travis
+module Checker
   module Database
     def self.connect
       ActiveRecord::Base.establish_connection(config)
