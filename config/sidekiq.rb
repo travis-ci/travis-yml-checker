@@ -1,9 +1,11 @@
+$: << File.expand_path('../../lib', __FILE__)
+
 require 'rubygems'
 require 'bundler/setup'
 Bundler.require :default
 
-require_relative '../lib/build_worker'
-require_relative '../lib/config_worker'
-require_relative '../lib/database'
+require 'build_worker'
+require 'config_worker'
+require 'database'
 
 Checker::Database.connect
