@@ -15,7 +15,15 @@ ActiveRecord::Schema.define(version: 20170623094831) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "configs", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
+    t.string "level"
+    t.string "key"
+    t.string "code"
+    t.text "args"
+    t.integer "result_id"
+  end
+
+  create_table "results", force: :cascade do |t|
     t.integer "build_id"
     t.text "original_config"
     t.jsonb "parsed_config"
@@ -23,14 +31,6 @@ ActiveRecord::Schema.define(version: 20170623094831) do
     t.string "owner_type"
     t.integer "owner_id"
     t.integer "request_id"
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.string "level"
-    t.string "key"
-    t.string "code"
-    t.text "args"
-    t.integer "config_id"
   end
 
 end

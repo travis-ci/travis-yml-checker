@@ -1,6 +1,6 @@
-class CreateConfigs < ActiveRecord::Migration[5.1]
+class CreateResults < ActiveRecord::Migration[5.1]
   def change
-    create_table :configs do |t|
+    create_table :results do |t|
       t.integer  :build_id
       t.text     :original_config
       t.jsonb    :parsed_config
@@ -14,7 +14,7 @@ class CreateConfigs < ActiveRecord::Migration[5.1]
       t.string   :key
       t.string   :code
       t.text     :args
-      t.integer  :config_id
+      t.integer  :result_id
     end
   end
 end

@@ -6,3 +6,4 @@ development: &development
 
 test:
   <<: *development
+  database: yml_test
