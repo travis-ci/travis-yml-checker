@@ -15,6 +15,14 @@ GIT
       rotp
       yubikey
 
+GIT
+  remote: https://github.com/travis-ci/travis-yml
+  revision: 2f81540e5650520fcf37310b6a245fa0c4533e91
+  specs:
+    travis-yml (0.0.1)
+      amatch
+      safe_yaml
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,6 +50,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    amatch (0.3.1)
+      tins (~> 1.0)
     arel (8.0.0)
     builder (3.2.3)
     concurrent-ruby (1.0.5)
@@ -117,6 +127,7 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
+    tins (1.14.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     yubikey (1.4.1)
@@ -137,6 +148,7 @@ DEPENDENCIES
   standalone_migrations
   travis-config!
   travis-sso!
+  travis-yml!
 
 BUNDLED WITH
    1.15.1

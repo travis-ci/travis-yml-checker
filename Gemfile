@@ -10,6 +10,7 @@ gem 'puma'
 gem 'standalone_migrations'
 gem 'sentry-raven'
 
+gem 'travis-yml', git: 'https://github.com/travis-ci/travis-yml'
 gem 'travis-config', git: 'https://github.com/travis-ci/travis-config'
 gem 'travis-sso', git: 'https://github.com/travis-ci/travis-sso'
 
