@@ -1,3 +1,5 @@
+ENV['ENV'] = ENV['RAILS_ENV'] = ENV['RACK_ENV'] = 'test'
+
 require_relative '../config/sidekiq'
 require 'database_cleaner'
 
