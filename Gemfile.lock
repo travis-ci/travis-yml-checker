@@ -93,6 +93,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (12.0.0)
     redis (3.3.3)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
     rotp (3.3.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
@@ -140,6 +142,8 @@ DEPENDENCIES
   database_cleaner
   pg
   puma
+  redis
+  redis-namespace
   rspec
   safe_yaml
   sentry-raven
