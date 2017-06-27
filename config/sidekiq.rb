@@ -1,5 +1,5 @@
 $: << File.expand_path('../../lib', __FILE__)
-
+puts 'THIS HAS BEEN REQUIRED!'
 require 'rubygems'
 require 'bundler/setup'
 Bundler.require :default
