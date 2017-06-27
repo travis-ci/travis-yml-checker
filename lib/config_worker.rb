@@ -5,6 +5,7 @@ require 'travis/yaml'
 module Checker
   class ConfigWorker
     include Sidekiq::Worker
+    sidekiq_options queue: 'yml'
 
     def perform(original_config, request_id, repo_id, owner_type, owner_id)
       config = Travis::Yaml.load(original_config)
