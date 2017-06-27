@@ -8,7 +8,8 @@ module Checker
 
     def perform(original_config, request_id, repo_id, owner_type, owner_id)
       config = Travis::Yaml.load(original_config)
-      result = Result.create(
+      result = Result.find_or_create_by(request_id: request_id)
+      result.update_attributes(
         original_config: original_config,
         request_id:      request_id,
         repo_id:         repo_id,
