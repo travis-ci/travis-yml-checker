@@ -7,7 +7,7 @@ gem 'pg'
 gem 'safe_yaml'
 
 gem 'sinatra'
-gem 'sidekiq'
+gem 'sidekiq', '~> 4.2'
 gem 'puma'
 gem 'standalone_migrations'
 gem 'sentry-raven'
