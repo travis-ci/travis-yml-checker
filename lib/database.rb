@@ -9,8 +9,8 @@ module Checker
     end
 
     def self.config
-      if ENV['RACK_ENV'] == 'production'
-        ENV['DATABASE_URL']
+      if ['production', 'staging'].include?(ENV['RACK_ENV'])
+        { database: ENV['DATABASE_URL'], pool: ENV['DB_POOL'] }
       else
         config = YAML.load(File.read(File.expand_path('../../db/config.yml', __FILE__)))
         config[ENV.fetch('RACK_ENV', 'development')]
