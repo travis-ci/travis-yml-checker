@@ -16,8 +16,8 @@ module Checker
 
     get '/result/:id' do
       @result = Result.find params[:id]
-      #@messages = @result.messages
-      erb :result
+      @messages = @result.messages
+      slim :result
     end
   end
 end

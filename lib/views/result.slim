@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title Result Page
+    link href="/css/style.css" rel="stylesheet"
+
+
+body
+  h1 Result:
+  table
+    thead
+      tr
+        th id
+        th build_id
+        th repo_id
+        th owner_type
+        th owner_id
+        th request_id
+
+    tbody
+      tr
+        td = @result.id
+        td = @result.build_id
+        td = @result.repo_id
+        td = @result.owner_type
+        td = @result.owner_id
+        td = @result.request_id
+
+  b Messages:
+  ul
+    - @messages.each do |message|
+      li = message.inspect
+
+  b original_config:
+  p = @result.original_config
+  b parsed_config:
+  p = @result.parsed_config
