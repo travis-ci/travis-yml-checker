@@ -13,5 +13,11 @@ module Checker
       headers['Content-Type'] = 'application/json'
       JSON.dump(results: Result.count, messages: Message.count)
     end
+
+    get '/result/:id' do
+      @result = Result.find params[:id]
+      #@messages = @result.messages
+      erb :result
+    end
   end
 end
