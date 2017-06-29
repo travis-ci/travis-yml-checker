@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623094831) do
+ActiveRecord::Schema.define(version: 20170629100602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20170623094831) do
     t.string "code"
     t.text "args"
     t.integer "result_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["result_id"], name: "index_messages_on_result_id"
   end
 
   create_table "results", force: :cascade do |t|
@@ -30,7 +33,11 @@ ActiveRecord::Schema.define(version: 20170623094831) do
     t.integer "repo_id"
     t.string "owner_type"
     t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "request_id"
+    t.index ["owner_type", "owner_id"], name: "index_results_on_owner_type_and_owner_id"
+    t.index ["request_id"], name: "index_results_on_request_id"
   end
 
 end

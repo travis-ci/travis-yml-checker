@@ -7,6 +7,7 @@ class CreateResults < ActiveRecord::Migration[5.1]
       t.integer  :repo_id
       t.string   :owner_type
       t.integer  :owner_id
+      t.timestamps
     end
 
     create_table :messages do |t|
@@ -15,6 +16,7 @@ class CreateResults < ActiveRecord::Migration[5.1]
       t.string   :code
       t.text     :args
       t.integer  :result_id
+      t.timestamps
     end
   end
 end
