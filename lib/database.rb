@@ -12,7 +12,7 @@ module Checker
       if ['production', 'staging'].include?(ENV['RACK_ENV'])
         ENV['DATABASE_URL']
       else
-        config = YAML.load(File.read(File.expand_path('../../db/config.yml', __FILE__)))
+        config = YAML.load(File.read(File.expand_path('../../config/database.yml', __FILE__)))
         config[ENV.fetch('RACK_ENV', 'development')]
       end
     end

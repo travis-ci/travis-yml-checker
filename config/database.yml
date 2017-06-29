@@ -3,6 +3,9 @@ default: &default
   pool: 5
   timeout: 5000
 
+production:
+  pool: 10
+
 development:
   <<: *default
   database: yml_development
