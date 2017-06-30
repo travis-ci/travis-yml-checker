@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler/setup'
 Bundler.require :default
 
+require 'travis/yaml'
 require 'models/result'
 require 'models/message'
 
