@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170629100602) do
     t.string "level"
     t.string "key"
     t.string "code"
-    t.text "args"
+    t.jsonb "args"
     t.integer "result_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

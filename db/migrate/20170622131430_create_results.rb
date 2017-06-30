@@ -14,7 +14,7 @@ class CreateResults < ActiveRecord::Migration[5.1]
       t.string   :level
       t.string   :key
       t.string   :code
-      t.text     :args
+      t.jsonb    :args
       t.integer  :result_id
       t.timestamps
     end
