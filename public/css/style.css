@@ -1,0 +1,16 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  padding: 1rem 4rem;
+}
+
+.level-info {
+  color:  #357edd;
+}
+
+.level-warn {
+  color:  #ff6300;
+}
+
+.level-error {
+  color:  #ff4136;
+}
