@@ -1,9 +1,10 @@
 RSpec.describe Checker::BuildWorker do
   let(:build_id) { 1000 }
   let(:request_id) { 2000 }
+  let(:time) { Time.now + 1 }
 
   it 'creates a placeholder result record' do
-    subject.perform(build_id, request_id)
+    subject.perform_in(time, build_id, request_id)
     result = Result.last
     expect(result.attributes.symbolize_keys).to include(
       original_config: nil,
@@ -23,7 +24,7 @@ RSpec.describe Checker::BuildWorker do
       owner_type: 'User',
       owner_id: 45
     )
-    subject.perform(build_id, request_id)
+    subject.perform_in(time, build_id, request_id)
     result.reload
     expect(result.build_id).to eq build_id
   end
