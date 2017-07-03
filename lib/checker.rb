@@ -20,5 +20,10 @@ module Checker
       @messages = @result.messages
       slim :result
     end
+
+    get '/request/:id' do
+      result_id = Result.find_by(request_id: params[:id]).id
+      redirect "result/#{result_id}"
+    end
   end
 end
