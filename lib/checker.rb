@@ -27,8 +27,9 @@ module Checker
       authorized?: -> u { config.admins.include? u['login'] }
 
     get '/' do
-      headers['Content-Type'] = 'application/json'
-      JSON.dump(results: Result.count, messages: Message.count)
+      @results_count = Result.count
+      @messages_count = Message.count
+      slim :checker
     end
 
     get '/result/:id' do
