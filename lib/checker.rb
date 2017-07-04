@@ -39,8 +39,9 @@ module Checker
     end
 
     get '/request/:id' do
-      result_id = Result.find_by(request_id: params[:id]).id
-      redirect "result/#{result_id}"
+      result = Result.find_by(request_id: params[:id])
+      redirect "result/#{result.id}" if result
+      slim :oops
     end
 
     error ActiveRecord::RecordNotFound do
