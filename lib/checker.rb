@@ -1,14 +1,34 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'rack/ssl'
 Bundler.require :default
 
 require 'travis/yaml'
+require 'travis/sso'
+require 'travis/config'
 require 'models/result'
 require 'models/message'
 
 module Checker
   class Application < Sinatra::Application
-    register Travis::SSO
+    # register Travis::SSO
+    # use travis-config to define admins
+    Travis::Config.class_eval do
+      define admins: []
+    end
+
+    config = Travis::Config.load
+
+    puts config
+    puts config.inspect
+
+    # authenticate users
+    enable :sessions
+    use Travis::SSO, mode: :session,
+      authorized?: -> u { config.admins.include? u['login'] }
+      # authorized?: -> u { 'carlad' }
+
+
 
     get '/' do
       headers['Content-Type'] = 'application/json'

@@ -78,6 +78,8 @@ GEM
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
+    rack-ssl (1.4.1)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails-dom-testing (2.0.3)
@@ -146,6 +148,7 @@ DEPENDENCIES
   database_cleaner
   pg
   puma
+  rack-ssl
   redis
   redis-namespace
   rspec
