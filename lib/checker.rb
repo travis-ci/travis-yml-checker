@@ -42,5 +42,13 @@ module Checker
       result_id = Result.find_by(request_id: params[:id]).id
       redirect "result/#{result_id}"
     end
+
+    error ActiveRecord::RecordNotFound do
+      slim :oops
+    end
+
+    not_found do
+      slim :oops
+    end
   end
 end
