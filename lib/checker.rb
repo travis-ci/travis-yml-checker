@@ -18,6 +18,9 @@ module Checker
 
     config = Travis::Config.load(:files, :keychain, :heroku)
 
+    puts ENV['ENV']
+    puts config.inspect
+
     # authenticate users
     enable :sessions
     use Travis::SSO, mode: :session,
