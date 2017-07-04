@@ -11,24 +11,17 @@ require 'models/message'
 
 module Checker
   class Application < Sinatra::Application
-    # register Travis::SSO
     # use travis-config to define admins
     Travis::Config.class_eval do
       define admins: []
     end
 
-    config = Travis::Config.load
-
-    puts config
-    puts config.inspect
+    config = Travis::Config.load(:files, :keychain, :heroku)
 
     # authenticate users
     enable :sessions
     use Travis::SSO, mode: :session,
       authorized?: -> u { config.admins.include? u['login'] }
-      # authorized?: -> u { 'carlad' }
-
-
 
     get '/' do
       headers['Content-Type'] = 'application/json'

@@ -17,7 +17,7 @@ gem 'slim'
 gem 'rack-ssl'
 
 gem 'travis-yml', git: 'https://github.com/travis-ci/travis-yml'
-gem 'travis-config', git: 'https://github.com/travis-ci/travis-config'
+gem 'travis-config'
 gem 'travis-sso', git: 'https://github.com/travis-ci/travis-sso'
 
 group :test do
