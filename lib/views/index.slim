@@ -8,6 +8,12 @@ html
     link href="/css/style.css" rel="stylesheet"
 
 body
-  asdkjhf
-  pre = @result_count
-  
+  table class="collapse ba pv3 ph3"
+    thead
+      tr class="striped--light-gray ttu"
+        th class="pv2 ph3" results
+        th class="pv2 ph3" messages
+    tbody
+      tr
+        td class="pv2 ph3 tc" = @results_count
+        td class="pv2 ph3 tc" = @messages_count

@@ -29,7 +29,7 @@ module Checker
     get '/' do
       @results_count = Result.count
       @messages_count = Message.count
-      slim :checker
+      slim :index
     end
 
     get '/result/:id' do
