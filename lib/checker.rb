@@ -25,17 +25,10 @@ module Checker
 
     get '/' do
       @results_count = Result.count
-      @messages = Message.all
-      levels = @messages.pluck(:level).uniq
-
-      levels.each do |level|
-        instance_variable_set("@#{level}", @messages.where(level: level))
-        # instance_variable_set("@#{level}_codes", "@#{level}".group_by(&:code)
-      end
-
-      @info_codes = @info.group_by(&:code)
-      @warn_codes = @warn.group_by(&:code)
-      @error_codes = @error.group_by(&:code)
+      @messages_count = Message.count
+      @messages = Message.all.group_by(&:level).map do |level, msgs|
+        [level, msgs.group_by(&:code).map { |group, msgs| [group, msgs.size] }]
+      end.to_h
 
       slim :index
     end

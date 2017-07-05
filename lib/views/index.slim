@@ -16,44 +16,20 @@ body
     tbody
       tr
         td class="pv2 ph3 tc" = @results_count
-        td class="pv2 ph3 tc" = @messages.count
+        td class="pv2 ph3 tc" = @messages_count
 
 h3 Messages Summary
 
-- if @info.length > 0
-table class="collapse ba pv3 ph3"
+- @messages.each do |level, msgs|
+  table class="collapse ba pv3 ph3"
     thead
-      tr class="ttu bg-black-05 level-info"
-        th class="pv2 ph3" info
-        th class="pv2 ph3" = @info.count
+      tr class="ttu bg-black-05 level-#{level}"
+        th class="pv2 ph3" = level
+        th class="pv2 ph3" = msgs.map(&:last).inject(&:+)
+  
     tbody
-    - @info_codes.each do |code|
+    - msgs.each do |code, count|
       tr
-        td class="pv2 ph3 tc" = code.first
-        td class="pv2 ph3 tc" = code[1].count
-br
-- if @warn.length > 0
-table class="collapse ba pv3 ph3"
-    thead
-      tr class="ttu bg-black-05 level-warn"
-        th class="pv2 ph3" warning
-        th class="pv2 ph3" = @warn.count
-    tbody
-    - @warn_codes.each do |code|
-      tr
-        td class="pv2 ph3 tc" = code.first
-        td class="pv2 ph3 tc" = code[1].count
-br
-- if @error.length > 0
-table class="collapse ba pv3 ph3"
-    thead
-      tr class="ttu bg-black-05 level-error"
-        th class="pv2 ph3" error
-        th class="pv2 ph3" = @error.count
-    tbody
-    - @error_codes.each do |code|
-      tr
-        td class="pv2 ph3 tc" = code.first
-        td class="pv2 ph3 tc" = code[1].count
-
-
+        td class="pv2 ph3 tc" = code
+        td class="pv2 ph3 tc" = count
+    br
