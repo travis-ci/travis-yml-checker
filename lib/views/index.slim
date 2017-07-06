@@ -21,7 +21,7 @@ body
 h3 Messages Summary
 
 - @messages.each do |level, msgs|
-  table class="collapse ba pv3 ph3"
+  table class="fl mr4 collapse ba pv3 ph3"
     thead
       tr class="ttu bg-black-05 level-#{level}"
         th class="pv2 ph3" = level
@@ -32,4 +32,3 @@ h3 Messages Summary
       tr
         td class="pv2 ph3 tc" = code
         td class="pv2 ph3 tc" = count
-    br
