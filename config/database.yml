@@ -6,6 +6,9 @@ default: &default
 production:
   pool: 10
 
+staging:
+  <<: *default
+
 development:
   <<: *default
   database: yml_development
