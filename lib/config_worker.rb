@@ -4,7 +4,7 @@ require 'travis/yaml'
 
 module Checker
   class ConfigWorker
-    include Sidekiq::Worker
+    include Sidekiq::Worker, SlackClient
     sidekiq_options queue: 'yml'
 
     def perform(original_config, request_id, repo_id, owner_type, owner_id)
@@ -30,6 +30,8 @@ module Checker
           result_id:  result.id
         )
       end
+
+      ping "A new result! Parsing the config for request [#{request_id}](https://yml.travis-ci.org/request/#{request_id}) has produced #{messages.count} messages."
     end
   end
 
