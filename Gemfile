@@ -5,6 +5,7 @@ ruby File.read(File.expand_path('../.ruby-version', __FILE__)) if ENV['DYNO']
 gem 'activerecord', '~> 5.0'
 gem 'pg'
 gem 'safe_yaml'
+gem 'slack-notifier'
 
 gem 'sinatra'
 gem 'redis'
