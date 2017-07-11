@@ -45,7 +45,7 @@ module Checker
       slim :oops
     end
 
-    #only works when ENV=production 
+    #only works when ENV=production
     error ActiveRecord::RecordNotFound do
       slim :oops
     end
