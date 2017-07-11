@@ -1,3 +1,4 @@
+require 'slack-notifier'
 require 'models/result'
 
 module Checker
