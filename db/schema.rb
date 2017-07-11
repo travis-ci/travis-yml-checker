@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629100602) do
+ActiveRecord::Schema.define(version: 20170711122909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170629100602) do
     t.integer "result_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["level", "created_at"], name: "index_messages_on_level_and_created_at"
     t.index ["result_id"], name: "index_messages_on_result_id"
   end
 
