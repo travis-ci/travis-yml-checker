@@ -18,10 +18,6 @@ module Checker
 
     config = Travis::Config.load(:files, :keychain, :heroku)
 
-    if ENV['SLACK_URL']
-      @slack_notifier = Slack::Notifier.new ENV['SLACK_URL']
-    end
-
     # authenticate users
     enable :sessions
     use Travis::SSO, mode: :session,
