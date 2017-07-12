@@ -23,5 +23,17 @@ module SlackClient
   end
 end
 
+require 'librato/metrics'
+module LibratoClient
+  extend self
+  def authenticate
+    return unless ( ENV['LIBRATO_EMAIL'] && ENV['LIBRATO_TOKEN'] )
+    Librato::Metrics.authenticate ENV['LIBRATO_EMAIL'], ENV['LIBRATO_TOKEN']
+  end
+end
+
+LibratoClient.authenticate
+
 require 'build_worker'
 require 'config_worker'
+require 'librato_worker'
