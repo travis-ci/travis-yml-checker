@@ -9,6 +9,9 @@ module Checker
 
     def perform(original_config, request_id, repo_id, owner_type, owner_id)
       config = Travis::Yaml.load(original_config)
+      parse_time = Benchmark.realtime do
+        @parsed_config = config.serialize
+      end
       result = Result.find_or_create_by(request_id: request_id)
       result.update_attributes(
         original_config: original_config,
@@ -16,7 +19,8 @@ module Checker
         repo_id:         repo_id,
         owner_type:      owner_type,
         owner_id:        owner_id,
-        parsed_config:   config.serialize
+        parsed_config:   @parsed_config,
+        parse_time:      parse_time
       )
 
       messages = config.msgs
