@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711122909) do
+ActiveRecord::Schema.define(version: 20170712151525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
 
   create_table "messages", force: :cascade do |t|
     t.string "level"
@@ -38,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170711122909) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "request_id"
+    t.float "parse_time"
     t.index ["owner_type", "owner_id"], name: "index_results_on_owner_type_and_owner_id"
     t.index ["request_id"], name: "index_results_on_request_id"
   end

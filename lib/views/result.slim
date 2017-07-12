@@ -18,6 +18,7 @@ body
         th class="pv2 ph3" owner type
         th class="pv2 ph3" owner id
         th class="pv2 ph3" request id
+        th class="pv2 ph3" parse time
 
     tbody
       tr
@@ -27,6 +28,7 @@ body
         td class="pv2 ph3 tc" = @result.owner_type
         td class="pv2 ph3 tc" = @result.owner_id
         td class="pv2 ph3 tc" = @result.request_id
+        td class="pv2 ph3 tc" = "%f" % @result.parse_time if @result.parse_time
   br
   - if @messages.length > 0
     table class="collapse ba pv3 ph3"

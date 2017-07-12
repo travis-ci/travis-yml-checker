@@ -25,4 +25,8 @@ RSpec.configure do |config|
   config.after do
     DatabaseCleaner.clean
   end
+
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
+
 end
