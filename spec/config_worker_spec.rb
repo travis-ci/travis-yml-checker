@@ -33,4 +33,11 @@ RSpec.describe Checker::ConfigWorker do
     result = Result.last
     expect(result.parsed_config).to be_a Hash
   end
+
+  it 'queues a librato metrics job' do
+    expect {
+        subject.perform(config, request_id, 3, 'User', 2)
+      }.to change(Checker::LibratoWorker.jobs, :size).by(1)
+  end
+
 end
