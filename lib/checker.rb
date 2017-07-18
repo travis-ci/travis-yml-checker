@@ -16,7 +16,7 @@ module Checker
       define admins: []
     end
 
-    config = Travis::Config.load(:files, :keychain, :heroku)
+    config = Travis::Config.load
 
     # authenticate users
     enable :sessions

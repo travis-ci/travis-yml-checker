@@ -134,8 +134,8 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.7)
     tins (1.15.0)
-    travis-config (1.1.2)
-      hashr (~> 2.0.0)
+    travis-config (1.1.3)
+      hashr (~> 2.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     yubikey (1.4.1)
@@ -165,4 +165,4 @@ DEPENDENCIES
   travis-yml!
 
 BUNDLED WITH
-   1.15.1
+   1.15.2
