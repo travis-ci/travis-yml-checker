@@ -10,11 +10,10 @@ GIT
 
 GIT
   remote: https://github.com/travis-ci/travis-yml
-  revision: 15ae7520e5ad9892ef0e96ecb52e57538aa519c4
+  revision: 3e6aa8833d085c8dce1a2714ff1f1f4ed5827538
   specs:
     travis-yml (0.0.1)
       amatch
-      safe_yaml
 
 GEM
   remote: https://rubygems.org/
@@ -113,7 +112,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
-    ruby_parser (3.10.0)
+    ruby_parser (3.10.1)
       sexp_processor (~> 4.9)
     safe_yaml (1.0.4)
     sentry-raven (2.5.3)
