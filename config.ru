@@ -3,7 +3,7 @@ require 'rack/ssl'
 require 'raven'
 
 Raven.configure do |config|
-  config.dsn = ENV['SENTRY_URL']
+  config.dsn = ENV['SENTRY_DSN']
 end
 
 use Raven::Rack
