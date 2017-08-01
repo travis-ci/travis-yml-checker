@@ -10,8 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/travis-ci/travis-yml
-  revision: 3e6aa8833d085c8dce1a2714ff1f1f4ed5827538
-  ref: 3e6aa8833
+  revision: 6faf448424b1cc4d622780cba8f823a09b692c94
   specs:
     travis-yml (0.0.1)
       amatch
