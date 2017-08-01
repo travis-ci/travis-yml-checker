@@ -34,9 +34,12 @@ end
 
 LibratoClient.authenticate
 
-require 'raven'
-Raven.configure do |config|
-  config.dsn = ENV['SENTRY_DSN']
+if ENV['ENV'] == 'production'
+  require 'raven'
+  Raven.configure do |config|
+    return unless ENV['SENTRY_DSN']
+    config.dsn = ENV['SENTRY_DSN']
+  end
 end
 
 require 'build_worker'
