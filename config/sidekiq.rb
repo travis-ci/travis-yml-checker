@@ -34,6 +34,12 @@ end
 
 LibratoClient.authenticate
 
+require 'raven'
+Raven.configure do |config|
+  config.dsn = ENV['SENTRY_DSN']
+end
+use Raven::Rack
+
 require 'build_worker'
 require 'config_worker'
 require 'librato_worker'
