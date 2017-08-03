@@ -26,9 +26,9 @@ module Checker
     get '/' do
       @results_count = Result.count
       @messages_count = Message.count
-      @messages = Message.all.group_by(&:level).map do |level, msgs|
-        [level, msgs.group_by(&:code).map { |group, msgs| [group, msgs.size] }]
-      end.to_h
+      @messages = Message.connection.exec_query("select distinct level, code, count(*) from messages group by level, code;")
+      .to_a
+      .group_by{|h| h["level"]}.each{|_, v| v.each {|h| h.delete("level")}}
 
       slim :index
     end

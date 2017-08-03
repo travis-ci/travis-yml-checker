@@ -9,17 +9,17 @@ body
         td class="pv2 ph3 tc" = @results_count
         td class="pv2 ph3 tc" = @messages_count
 
+  / p Messages summary currently disabled
 h3 Messages Summary
-
+  
 - @messages.each do |level, msgs|
   table class="fl mr4 collapse ba pv3 ph3"
     thead
       tr class="ttu bg-black-05 level-#{level}"
         th class="pv2 ph3" = level
-        th class="pv2 ph3" = msgs.map(&:last).inject(&:+)
-  
+        th class="pv2 ph3" = msgs.map {|m| m["count"]}.reduce(0, :+)
     tbody
-    - msgs.each do |code, count|
+    - msgs.each do |msg|
       tr
-        td class="pv2 ph3 tc" = code
-        td class="pv2 ph3 tc" = count
+        td class="pv2 ph3 tc" = msg["code"]
+        td class="pv2 ph3 tc" = msg["count"]
