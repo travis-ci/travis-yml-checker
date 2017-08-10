@@ -30,6 +30,13 @@ module Checker
       .to_a
       .group_by{|h| h["level"]}.each{|_, v| v.each {|h| h.delete("level")}}
 
+      @erroring_repos = Result.connection.exec_query("SELECT COUNT (results.id), repo_id
+                                                      FROM results
+                                                      INNER JOIN messages ON results.id = messages.result_id
+                                                      WHERE messages.level = 'error'
+                                                      GROUP BY repo_id
+                                                      ORDER BY COUNT (results.id) DESC;").to_a
+
       slim :index
     end
 
