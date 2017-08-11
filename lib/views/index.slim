@@ -18,9 +18,8 @@ h3 Messages Summary
     tbody
     - msgs.each do |msg|
       tr
-        td class="pv2 ph3 tc" = msg["code"]
+        td class="pv2 ph3 tc" <a href="args/#{msg["code"]}" class="link dim black"> #{msg["code"]}</a>
         td class="pv2 ph3 tc" = msg["count"]
-
 .cf
 br
 h3 Erroring Repos Summary
