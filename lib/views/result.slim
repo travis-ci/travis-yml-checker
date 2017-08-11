@@ -14,7 +14,7 @@ table class="collapse ba pv3 ph3"
     tr
       td class="pv2 ph3 tc" = @result.id
       td class="pv2 ph3 tc" = @result.build_id
-      td class="pv2 ph3 tc" = @result.repo_id
+      td class="pv2 ph3 tc" <a href="../repo/#{@result.repo_id}" class="link dim black">#{@result.repo_id}</a>
       td class="pv2 ph3 tc" = @result.owner_type
       td class="pv2 ph3 tc" = @result.owner_id
       td class="pv2 ph3 tc" = @result.request_id
