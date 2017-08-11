@@ -57,6 +57,12 @@ module Checker
       slim :repo
     end
 
+    get '/args/:code' do
+      @messages = Message.where(code: params[:code])
+      @args = @messages.group_by{|a| a.args }.sort_by{|arg, group| group.count }.reverse
+      slim :args
+    end
+
     #only works when ENV=production
     error ActiveRecord::RecordNotFound do
       slim :oops

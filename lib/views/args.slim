@@ -1,0 +1,25 @@
+h2 Args 
+
+table class="collapse ba pv3 ph3"
+  thead
+    tr class="striped--light-gray ttu"
+      th class="pv2 ph3" level
+      th class="pv2 ph3" code
+  tbody
+    tr
+      td class="pv2 ph3 level-#{@args.first[1][0][:level]}" = @args.first[1][0][:level]
+      td class="pv2 ph3" = @args.first[1][0][:code]
+br
+- if @args.length > 0
+  table class="collapse ba pv3 ph3"
+    thead
+      tr class="striped--light-gray ttu"
+        th class="pv2 ph3" count
+        th class="pv2 ph3" key
+        th class="pv2 ph3" args
+    tbody
+      - @args.each do |arg, group|
+        tr
+          td class="pv2 ph3" = group.count
+          td class="pv2 ph3" = group.first[:key]
+          td class="pv2 ph3" = arg
