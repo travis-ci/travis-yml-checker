@@ -1,0 +1,32 @@
+h2 Repository
+- puts ENV['RACK_ENV']
+p
+  - if ENV['RACK_ENV'] == 'staging' 
+    - admin = 'admin-staging'
+  - else
+    - admin = 'admin'
+
+  | Visit repo in <a href="https://#{admin}.travis-ci.org/repository/#{params[:id]}" class="link underline dim black"> admin</a>
+
+h3 Messages
+br
+- if @messages.length > 0
+  table class="collapse ba pv3 ph3 repo_table"
+    thead
+      tr class="striped--light-gray ttu"
+        th class="pv2 ph3" result
+        th class="pv2 ph3" level
+        th class="pv2 ph3" key
+        th class="pv2 ph3" code
+        th class="pv2 ph3" message
+        th class="pv2 ph3" created
+    tbody
+      - @messages.each do |message|
+        tr
+          td class="pv2 ph3" <a href="../result/#{message.result_id}" class="link dim black"> #{message.result_id}</a>
+          td class="pv2 ph3 level-#{message.level}" = message.level
+          td class="pv2 ph3" = message.key
+          td class="pv2 ph3" = message.code
+          td class="pv2 ph3" = Travis::Yaml.msg([message.level, message.key, message.code.to_sym, message.args.symbolize_keys])
+          td class="pv2 ph3" = message.created_at
+br
