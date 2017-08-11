@@ -1,44 +1,43 @@
-body
-  h1 Result
+h1 Result
+table class="collapse ba pv3 ph3"
+  thead
+    tr class="striped--light-gray ttu"
+      th class="pv2 ph3" id
+      th class="pv2 ph3" build id
+      th class="pv2 ph3" repo id
+      th class="pv2 ph3" owner type
+      th class="pv2 ph3" owner id
+      th class="pv2 ph3" request id
+      th class="pv2 ph3" parse time
+
+  tbody
+    tr
+      td class="pv2 ph3 tc" = @result.id
+      td class="pv2 ph3 tc" = @result.build_id
+      td class="pv2 ph3 tc" = @result.repo_id
+      td class="pv2 ph3 tc" = @result.owner_type
+      td class="pv2 ph3 tc" = @result.owner_id
+      td class="pv2 ph3 tc" = @result.request_id
+      td class="pv2 ph3 tc" = "%f" % @result.parse_time if @result.parse_time
+br
+- if @messages.length > 0
   table class="collapse ba pv3 ph3"
     thead
       tr class="striped--light-gray ttu"
-        th class="pv2 ph3" id
-        th class="pv2 ph3" build id
-        th class="pv2 ph3" repo id
-        th class="pv2 ph3" owner type
-        th class="pv2 ph3" owner id
-        th class="pv2 ph3" request id
-        th class="pv2 ph3" parse time
-
+        th class="pv2 ph3" level
+        th class="pv2 ph3" key
+        th class="pv2 ph3" code
+        th class="pv2 ph3" message
     tbody
-      tr
-        td class="pv2 ph3 tc" = @result.id
-        td class="pv2 ph3 tc" = @result.build_id
-        td class="pv2 ph3 tc" = @result.repo_id
-        td class="pv2 ph3 tc" = @result.owner_type
-        td class="pv2 ph3 tc" = @result.owner_id
-        td class="pv2 ph3 tc" = @result.request_id
-        td class="pv2 ph3 tc" = "%f" % @result.parse_time if @result.parse_time
-  br
-  - if @messages.length > 0
-    table class="collapse ba pv3 ph3"
-      thead
-        tr class="striped--light-gray ttu"
-          th class="pv2 ph3" level
-          th class="pv2 ph3" key
-          th class="pv2 ph3" code
-          th class="pv2 ph3" message
-      tbody
-        - @messages.each do |message|
-          tr
-            td class="pv2 ph3 level-#{message.level}" = message.level
-            td class="pv2 ph3" = message.key
-            td class="pv2 ph3" = message.code
-            td class="pv2 ph3" = Travis::Yaml.msg([message.level, message.key, message.code.to_sym, message.args.symbolize_keys])
-  br
+      - @messages.each do |message|
+        tr
+          td class="pv2 ph3 level-#{message.level}" = message.level
+          td class="pv2 ph3" = message.key
+          td class="pv2 ph3" = message.code
+          td class="pv2 ph3" = Travis::Yaml.msg([message.level, message.key, message.code.to_sym, message.args.symbolize_keys])
+br
 
-  h2 Original Config
-  pre = @result.original_config
-  h2 Parsed Config
-  pre = JSON.pretty_generate(@result.parsed_config)
+h2 Original Config
+pre = @result.original_config
+h2 Parsed Config
+pre = JSON.pretty_generate(@result.parsed_config)
