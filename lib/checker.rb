@@ -26,11 +26,11 @@ module Checker
     get '/' do
       @results_count = Result.count
       @messages_count = Message.count
-      @messages = Message.connection.exec_query("select distinct level, code, count(*) from messages group by level, code;")
+      @messages = Message.connection.exec_query("SELECT DISTINCT level, code, COUNT(*) FROM messages GROUP BY level, code;")
       .to_a
       .group_by{|h| h["level"]}.each{|_, v| v.each {|h| h.delete("level")}}
 
-      @erroring_repos = Result.connection.exec_query("SELECT COUNT (results.id), repo_id
+      @erroring_repos = Result.connection.exec_query("SELECT COUNT (results.id), repo_id, MAX(results.created_at)
                                                       FROM results
                                                       INNER JOIN messages ON results.id = messages.result_id
                                                       WHERE messages.level = 'error'
@@ -50,6 +50,11 @@ module Checker
       result = Result.find_by(request_id: params[:id])
       redirect "result/#{result.id}" if result
       slim :oops
+    end
+
+    get '/repo/:id' do
+      @messages = Result.find_by(repo_id: params[:id]).messages
+      slim :repo
     end
 
     #only works when ENV=production

@@ -44,3 +44,7 @@
 .main {
   padding: 30px 0;
 }
+
+.repo_table td:nth-of-type(5){
+  width: 1%
+}
