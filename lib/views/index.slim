@@ -22,16 +22,4 @@ h3 Messages Summary
         td class="pv2 ph3 tc" = msg["count"]
 .cf
 br
-/!h3 Erroring Repos Summary
-/! table class="collapse ba pv3 ph3"
-/!   thead
-/!     tr class="striped--light-gray ttu"
-/!       th class="pv2 ph3" repo
-/!       th class="pv2 ph3" errors
-/!       th class="pv2 ph3" last build
-/!   tbody
-/!   - @erroring_repos.each do |repo|
-/!     tr
-/!       td class="pv2 ph3 tc" <a href="repo/#{repo["repo_id"]}" class="link dim black"> #{repo["repo_id"]}</a>
-/!       td class="pv2 ph3 tc" = repo["count"]
-/!       td class="pv2 ph3 tc" = repo["max"][0...-15]
+
