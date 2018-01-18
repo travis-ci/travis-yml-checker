@@ -21,7 +21,7 @@ require 'travis/metrics/sidekiq'
 Sidekiq.configure_server do |config|
   config.redis = { url: ENV['REDIS_URL'], namespace: 'sidekiq' }
 
-  c.server_middleware do |chain|
+  config.server_middleware do |chain|
     chain.add Travis::Metrics::Sidekiq
   end
 end
