@@ -7,12 +7,15 @@ require 'database'
 Checker::Database.connect
 
 require 'travis/metrics'
+require 'logger'
 logger = Logger.new(STDOUT)
 metrics_config = {
   reporter: 'librato',
-  email: ENV['LIBRATO_EMAIL'],
-  token: ENV['LIBRATO_TOKEN'],
-  source: ENV['LIBRATO_SOURCE'],
+  librato: {
+    email: ENV['LIBRATO_EMAIL'],
+    token: ENV['LIBRATO_TOKEN'],
+    source: ENV['LIBRATO_SOURCE'],
+  },
 }
 Travis::Metrics.setup(metrics_config, logger)
 
