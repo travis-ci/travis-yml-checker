@@ -6,9 +6,24 @@ require 'bundler/setup'
 require 'database'
 Checker::Database.connect
 
+require 'travis/metrics'
+logger = Logger.new(STDOUT)
+metrics_config = {
+  reporter: 'librato',
+  email: ENV['LIBRATO_EMAIL'],
+  token: ENV['LIBRATO_TOKEN'],
+  source: ENV['LIBRATO_SOURCE'],
+}
+Travis::Metrics.setup(metrics_config, logger)
+
 require 'sidekiq'
+require 'travis/metrics/sidekiq'
 Sidekiq.configure_server do |config|
   config.redis = { url: ENV['REDIS_URL'], namespace: 'sidekiq' }
+
+  c.server_middleware do |chain|
+    chain.add Travis::Metrics::Sidekiq
+  end
 end
 
 require 'slack-notifier'
