@@ -21,6 +21,10 @@ gem 'librato-metrics'
 gem 'travis-yml', git: 'https://github.com/travis-ci/travis-yml'
 gem 'travis-config'
 gem 'travis-sso', git: 'https://github.com/travis-ci/travis-sso'
+gem 'travis-metrics', git: 'https://github.com/travis-ci/travis-metrics'
+
+gem 'metriks',                 git: 'https://github.com/travis-ci/metriks', ref: 'igor-hdr-histogram'
+gem 'metriks-librato_metrics', git: 'https://github.com/travis-ci/metriks-librato_metrics', ref: 'igor-hdr-histogram'
 
 group :test do
   gem 'rspec'
