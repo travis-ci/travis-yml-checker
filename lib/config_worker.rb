@@ -35,7 +35,7 @@ module Checker
         )
       end
 
-      ping "A new result! Parsing the config for request [#{request_id}](https://yml.travis-ci.org/request/#{request_id}) has produced #{messages.count} messages."
+      ping "A new result! Parsing the config for request [#{request_id}](https://yml-checker.travis-ci.org/request/#{request_id}) has produced #{messages.count} messages."
 
       #enqueue seding of metrics to librato
       LibratoWorker.perform_async(messages.map(&:first), parse_time.to_f)
