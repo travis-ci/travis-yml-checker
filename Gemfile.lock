@@ -34,10 +34,19 @@ GIT
 
 GIT
   remote: https://github.com/travis-ci/travis-yml
-  revision: 6faf448424b1cc4d622780cba8f823a09b692c94
+  revision: 346dda668aa48532d8e0b60100689c65ea567e23
   specs:
     travis-yml (0.0.1)
+      activesupport
       amatch
+      oj
+      puma
+      rack
+      rack-cors
+      rack-ssl-enforcer
+      sentry-raven
+      travis-conditions
+      travis-config
 
 GEM
   remote: https://rubygems.org/
@@ -96,22 +105,26 @@ GEM
     method_source (0.8.2)
     mini_portile2 (2.3.0)
     minitest (5.10.2)
-    mize (0.3.2)
+    mize (0.3.5)
       protocol
     multi_json (1.12.1)
     multipart-post (2.0.0)
     mustermann (1.0.2)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    oj (3.6.2)
+    parslet (1.8.2)
     pg (0.21.0)
     protocol (1.0.1)
       ruby_parser (~> 3.0)
     puma (3.9.1)
     rack (2.0.5)
+    rack-cors (1.0.2)
     rack-protection (2.0.3)
       rack
     rack-ssl (1.4.1)
       rack
+    rack-ssl-enforcer (0.2.9)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails-dom-testing (2.0.3)
@@ -143,12 +156,12 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
-    ruby_parser (3.10.1)
+    ruby_parser (3.11.0)
       sexp_processor (~> 4.9)
     safe_yaml (1.0.4)
     sentry-raven (2.5.3)
       faraday (>= 0.7.6, < 1.0)
-    sexp_processor (4.10.0)
+    sexp_processor (4.11.0)
     sidekiq (4.2.6)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -171,7 +184,9 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    tins (1.15.0)
+    tins (1.16.3)
+    travis-conditions (0.0.2)
+      parslet (~> 1.8)
     travis-config (1.1.3)
       hashr (~> 2.0)
     tzinfo (1.2.3)
