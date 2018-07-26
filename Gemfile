@@ -18,7 +18,7 @@ gem 'slim'
 gem 'rack-ssl'
 gem 'librato-metrics'
 
-gem 'travis-yml', git: 'https://github.com/travis-ci/travis-yml'
+gem 'travis-yml', git: 'https://github.com/travis-ci/travis-yml', ref: 'cd-conditions'
 gem 'travis-config'
 gem 'travis-sso', git: 'https://github.com/travis-ci/travis-sso'
 gem 'travis-metrics', git: 'https://github.com/travis-ci/travis-metrics'

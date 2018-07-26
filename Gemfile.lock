@@ -34,7 +34,8 @@ GIT
 
 GIT
   remote: https://github.com/travis-ci/travis-yml
-  revision: 6ddfdd9e2d9a9bafa09ee1a682eca01b17d1d311
+  revision: 7adc64f6cceafcbe6fbc27b96ab3f9afc82ee5bf
+  ref: cd-conditions
   specs:
     travis-yml (0.0.1)
       activesupport
