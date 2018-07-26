@@ -3,3 +3,5 @@
 An application to check on the effectiveness of the [`travis-yml`](https://github.com/travis-ci/travis-yml) library.
 
 To run locally add `config/travis.yml` file and do `foreman start web`.
+
+test
