@@ -4,4 +4,3 @@ An application to check on the effectiveness of the [`travis-yml`](https://githu
 
 To run locally add `config/travis.yml` file and do `foreman start web`.
 
-test
