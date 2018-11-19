@@ -119,7 +119,7 @@ GEM
     protocol (1.0.1)
       ruby_parser (~> 3.0)
     puma (3.12.0)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-cors (1.0.2)
     rack-protection (2.0.3)
       rack
