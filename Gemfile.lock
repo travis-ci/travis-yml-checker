@@ -100,7 +100,7 @@ GEM
     librato-metrics (2.1.2)
       aggregate (~> 0.2.2)
       faraday
-    loofah (2.2.2)
+    loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     method_source (0.8.2)
@@ -111,7 +111,7 @@ GEM
     multi_json (1.12.1)
     multipart-post (2.0.0)
     mustermann (1.0.2)
-    nokogiri (1.8.2)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     oj (3.6.4)
     parslet (1.8.2)
@@ -119,7 +119,7 @@ GEM
     protocol (1.0.1)
       ruby_parser (~> 3.0)
     puma (3.12.0)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-cors (1.0.2)
     rack-protection (2.0.3)
       rack
